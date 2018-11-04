@@ -1,0 +1,21 @@
+{
+  "name": "object-to-csv",
+  "version": "0.0.1",
+  "description": "A lightweight, dependency-less Node.js module to convert JSON objects to CSV format.",
+  "main": "index.js",
+  "homepage": "https://github.com/miscavage/ObjectToCSV#readme",
+  "author": "Mark Miscavage",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "object",
+    "json",
+    "to",
+    "csv",
+    "parse",
+    "convert",
+    "export"
+  ]
+}
