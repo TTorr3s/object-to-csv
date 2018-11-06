@@ -127,9 +127,9 @@ describe('ObjectToCSV', function () {
         });
     });
 
-    describe('reponseHeaders', function () {
-        it('should return object on get reponseHeaders', function (done) {
-            this.otc.reponseHeaders.should.be.an('object');
+    describe('getResponseHeaders', function () {
+        it('should return object on get getResponseHeaders', function (done) {
+            this.otc.getResponseHeaders().should.be.an('object');
 
             done();
         });
