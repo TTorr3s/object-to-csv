@@ -5,7 +5,7 @@ A lightweight, dependency-less Node.js module to convert JSON objects to CSV for
 
 ## • Installation
 
-Latest version: 0.0.3
+Latest version: 1.0.0
 
 `npm install object-to-csv`
 
