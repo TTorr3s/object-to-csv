@@ -1,3 +1,1 @@
-module.exports = exports = {
-    ObjectToCSV: require('./lib/ObjectToCSV'),
-};
+module.exports = exports = require('./lib/ObjectToCSV');
