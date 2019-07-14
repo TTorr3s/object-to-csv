@@ -142,4 +142,64 @@ describe('ObjectToCSV', function () {
             done();
         });
     });
+
+
+    describe('DataOutBounds', function () {
+        it('should not return any undefined', function (done) {
+            // Total cases to test
+            const MAX_LENGTH_DATA = 100;
+            let data = [];
+
+            // Fill data
+            for (let i = 0; i <= MAX_LENGTH_DATA; i++) {
+                data = [...data, {
+                    'data 1': 'static' + i,
+                    'data 2': 'static' + i,
+                }]
+            }
+
+            const keys = [
+                {key: 'data 1', as: 'data 1'},
+                {key: 'data 2', as: 'data 2'},
+            ];
+            
+            this.otc.setData(data);
+            this.otc.setDelimiter(',');
+            this.otc.setKeys(keys);
+            
+            /undefined/.test(this.otc.getCSV()).should.be.false;
+
+            done();
+        });
+
+        it('should return undefined', function (done) {
+            // Total cases to test
+            const MAX_LENGTH_DATA = 10;
+            let data = [];
+
+            // Fill data
+            for (let i = 0; i <= MAX_LENGTH_DATA; i++) {
+                data = [...data, {
+                    'data 1': 'static' + i,
+                    'data 2': 'static' + i,
+                }]
+            }
+    
+            // In this case, data 2 is missing, then should return undefined
+            data = [...data, {'data 1': 'static 200'}];
+
+            const keys = [
+                {key: 'data 1', as: 'data 1'},
+                {key: 'data 2', as: 'data 2'},
+            ];
+            
+            this.otc.setData(data);
+            this.otc.setDelimiter(',');
+            this.otc.setKeys(keys);
+            
+            /undefined/.test(this.otc.getCSV()).should.be.true;
+
+            done();
+        });
+    });
 });
