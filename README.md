@@ -6,7 +6,7 @@
 <span class="badge-daviddm"><a href="https://david-dm.org/miscavage/object-to-csv" title="View the status of this project's dependencies on DavidDM"><img src="https://img.shields.io/david/miscavage/object-to-csv.svg" alt="Dependency Status" /></a></span>
 <span class="badge-daviddmdev"><a href="https://david-dm.org/miscavage/object-to-csv#info=devDependencies" title="View the status of this project's development dependencies on DavidDM"><img src="https://img.shields.io/david/dev/miscavage/object-to-csv.svg" alt="Dev Dependency Status" /></a></span>
 
-A lightweight, dependency-less Node.js module to convert JSON objects to CSV format.
+A lightweight, robust & dependency-less Node.js module to convert JSON objects to CSV format.
 
 
 ## • Installation
@@ -32,7 +32,7 @@ let data = [
 ];
 
 //3. Set up CSV
-let otc = new ObjectToCSV().setKeys(keys).setData(data);
+let otc = new ObjectToCSV({ data });
 
 //4. Get CSV
 let csv = otc.getCSV();
