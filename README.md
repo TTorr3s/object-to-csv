@@ -22,21 +22,7 @@ Latest version: 1.0.3
 //1. Import the module
 const ObjectToCSV = require('object-to-csv');
 
-//2. Set all data
-let keys = [
-    {
-        key: 'make',
-        as: 'Make',
-    },
-    {
-        key: 'model',
-        as: 'Model',
-    },
-    {
-        key: 'new',
-        as: 'Is The Car New',
-    },
-];
+//2. Set data
 let data = [
     { 
       'make': 'Ford',
@@ -64,7 +50,7 @@ let csv = otc.getCSV();
 
 ## • Usage
 Using the `ObjectToCSV` module is easy. 
-The setter methods return `this` which enables chaining functions. Warnings are present when values are given which may cause issues with the module. Find everything else you need to know below.
+The setter methods return `this` which enables chaining functions. Warnings are presented when values are given which may cause issues with the module. Find everything else you need to know below.
 
 
 ### • Constructor
@@ -90,6 +76,9 @@ ___
 #### • `keys`
 Keys for first row of csv. Set the keys in an array of objects according to the format below. Using the `key`/`as` format allows for you to set the `key` in the `data` object and display the `as` within the final csv as a proper title for example.
 
+If empty, the keys in the first object of the array will be used as column names.
+
+
 - Type: `Array`
 - Default: `[]`
 - Format: `[ {key: '', as: ''}, ... ]`
@@ -105,10 +94,8 @@ let keys = [
 
 //Set keys in 3 different ways
 let otc = new ObjectToCSV({ keys });
-//Or...
-otc.setKeys(keys);
-//Or...
-otc.keys = keys;
+// otc.setKeys(keys);
+// otc.keys = keys;
 
 //Get
 keys = otc.keys;
@@ -133,10 +120,8 @@ let data = [
 
 //Set data in 3 different ways
 let otc = new ObjectToCSV({ data });
-//Or...
-otc.setData(data);
-//Or...
-otc.data = data;
+// otc.setData(data);
+// otc.data = data;
 
 //Get
 data = otc.data;
@@ -155,10 +140,8 @@ let fileName = 'file-name';
 
 //Set file name in 3 different ways
 let otc = new ObjectToCSV({ fileName });
-//Or...
-otc.setFileName(fileName);
-//Or...
-otc.fileName = fileName;
+// otc.setFileName(fileName);
+// otc.fileName = fileName;
 
 //Get
 fileName = otc.fileName;
@@ -166,7 +149,7 @@ fileName = otc.fileName;
 
 ___
 #### • `shouldExpandObjects`
-Should flatten nested objects.
+Should flatten nested objects. This is a boolean to check if `JSON.stringify()` should be used on arrays and objects within the `data`.
 
 - Type: `Boolean`
 - Default: `false`
@@ -177,10 +160,8 @@ let shouldExpandObjects = false;
 
 //Set shouldExpandObjects in 3 different ways
 let otc = new ObjectToCSV({ shouldExpandObjects });
-//Or...
-otc.setShouldExpandObjects(shouldExpandObjects);
-//Or...
-otc.shouldExpandObjects = shouldExpandObjects;
+// otc.setShouldExpandObjects(shouldExpandObjects);
+// otc.shouldExpandObjects = shouldExpandObjects;
 
 //Get
 shouldExpandObjects = otc.shouldExpandObjects;
@@ -199,10 +180,8 @@ let endOfLineValue = '\n';
 
 //Set endOfLineValue in 3 different ways
 let otc = new ObjectToCSV({ endOfLineValue });
-//Or...
-otc.setEndOfLineValue(endOfLineValue);
-//Or...
-otc.endOfLineValue = endOfLineValue;
+// otc.setEndOfLineValue(endOfLineValue);
+// otc.endOfLineValue = endOfLineValue;
 
 //Get
 endOfLineValue = otc.endOfLineValue;
@@ -221,10 +200,8 @@ let delimiter = ',';
 
 //Set delimiter in 3 different ways
 let otc = new ObjectToCSV({ delimiter });
-//Or...
-otc.setDelimiter(delimiter);
-//Or...
-otc.delimiter = delimiter;
+// otc.setDelimiter(delimiter);
+// otc.delimiter = delimiter;
 
 //Get
 delimiter = otc.delimiter;
@@ -243,10 +220,8 @@ let quote = '"';
 
 //Set quote in 3 different ways
 let otc = new ObjectToCSV({ quote });
-//Or...
-otc.setQuote(quote);
-//Or...
-otc.quote = quote;
+// otc.setQuote(quote);
+// otc.quote = quote;
 
 //Get
 quote = otc.quote;
@@ -266,10 +241,8 @@ let booleanValues = { 'true': 'Yes', 'false': 'No'  };
 
 //Set quote in 3 different ways
 let otc = new ObjectToCSV({ booleanValues });
-//Or...
-otc.setBooleanValues(booleanValues);
-//Or...
-otc.booleanValues = booleanValues;
+// otc.setBooleanValues(booleanValues);
+// otc.booleanValues = booleanValues;
 
 //Get
 booleanValues = otc.booleanValues;
@@ -308,8 +281,8 @@ let csv = otc.getCSV();
 const http = require('http');
 
 //2. Create server
-http.createServer(async (req, res) => {
-    var url = req.url;
+http.createServer((req, res) => {
+    const url = req.url;
 
     //3. Set up a route on your sever to download a test csv
     if (url == '/download') {
@@ -318,7 +291,7 @@ http.createServer(async (req, res) => {
         res.write(csv, 'text/csv');
         res.end();
     }
-});
+}).listen(8080);
 ```
 
 ## • Say Hi
