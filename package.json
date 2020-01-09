@@ -1,7 +1,7 @@
 {
   "name": "object-to-csv",
   "version": "1.0.3",
-  "description": "A lightweight, dependency-less Node.js module to convert JSON objects to CSV format.",
+  "description": "Convert array of objects to a CSV. No dependencies.",
   "main": "index.js",
   "homepage": "https://github.com/miscavage/object-to-csv#readme",
   "author": "Mark Miscavage",
@@ -10,10 +10,19 @@
     "test": "mocha --no-timeouts --reporter spec \"./tests/lib/*.js\""
   },
   "keywords": [
+    "csv",
+    "object-to-csv",
+    "objects-to-csv",
+    "converters",
+    "conversion",
+    "utilities",
+    "util",
+    "json-to-csv",
+    "json2csv",
+    "array-to-csv",
     "object",
     "json",
     "to",
-    "csv",
     "parse",
     "convert",
     "export"
