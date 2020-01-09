@@ -1,6 +1,6 @@
 {
   "name": "object-to-csv",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Convert array of objects to a CSV. No dependencies.",
   "main": "index.js",
   "homepage": "https://github.com/miscavage/object-to-csv#readme",
